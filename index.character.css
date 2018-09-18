@@ -1,0 +1,248 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #e0e0e0;
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.character {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+  background-image: linear-gradient(to top right, #f9a743, #f9db5f);
+}
+.character .ear {
+  position: absolute;
+  top: -110px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #243946;
+}
+.character .ear.ear--left {
+  left: -135px;
+}
+.character .ear.ear--right {
+  right: -135px;
+}
+.character .face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 150px;
+  margin: 80px auto 10px;
+  --rotate-head: 0deg;
+  -webkit-transform: rotate(var(--rotate-head));
+          transform: rotate(var(--rotate-head));
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+  -webkit-transform-origin: center 20px;
+          transform-origin: center 20px;
+}
+.character .eye {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #243946;
+}
+.character .eye.eye--left {
+  margin-right: 40px;
+}
+.character .eye.eye--right {
+  margin-left: 40px;
+}
+.character .eye .glow {
+  position: relative;
+  top: 3px;
+  right: -12px;
+  width: 12px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-transform: rotate(38deg);
+          transform: rotate(38deg);
+}
+.character .nose {
+  position: relative;
+  top: 30px;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+.character .nose .glow {
+  position: absolute;
+  top: 3px;
+  left: 32%;
+  width: 15px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #476375;
+}
+.character .mouth {
+  position: relative;
+  margin-top: 45px;
+}
+.character svg.smile {
+  position: absolute;
+  left: -28px;
+  top: -19px;
+  -webkit-transform: scaleX(1.1);
+          transform: scaleX(1.1);
+  stroke: #243946;
+}
+.character .mouth-hole {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 60px;
+  height: 15px;
+  border-radius: 50%/100% 100% 0% 0;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  background-color: #243946;
+  z-index: -1;
+}
+.character .tongue {
+  position: relative;
+  top: 5px;
+  width: 30px;
+  height: 20px;
+  background-color: #ffd7dd;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transform: rotateX(60deg);
+          transform: rotateX(60deg);
+}
+.character .tongue.breath {
+  -webkit-animation: breath 0.3s infinite linear;
+          animation: breath 0.3s infinite linear;
+}
+.character .tongue-top {
+  position: absolute;
+  bottom: -15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ffd7dd;
+}
+.character .line {
+  position: absolute;
+  top: 0;
+  width: 30px;
+  height: 5px;
+  background-color: #fcb7bf;
+}
+.character .median {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 4px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: #fcb7bf;
+}
+.character .hands {
+  position: relative;
+}
+.character .hands .hand {
+  position: absolute;
+  top: -6px;
+  display: flex;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  z-index: 1;
+}
+.character .hands .hand--left {
+  left: calc(50% - 90px);
+}
+.character .hands .hand--left.hide {
+  -webkit-transform: translate(2px, -155px) rotate(-160deg);
+          transform: translate(2px, -155px) rotate(-160deg);
+}
+.character .hands .hand--left.peek {
+  -webkit-transform: translate(0px, -120px) rotate(-160deg);
+          transform: translate(0px, -120px) rotate(-160deg);
+}
+.character .hands .hand--right {
+  right: calc(50% - 90px);
+}
+.character .hands .hand--right.hide {
+  -webkit-transform: translate(-6px, -155px) rotate(160deg);
+          transform: translate(-6px, -155px) rotate(160deg);
+}
+.character .hands .hand--right.peek {
+  -webkit-transform: translate(-4px, -120px) rotate(160deg);
+          transform: translate(-4px, -120px) rotate(160deg);
+}
+.character .hands .finger {
+  position: relative;
+  z-index: 0;
+}
+.character .hands .finger .bone {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #243946;
+  border-bottom: none;
+  border-top: none;
+  background-color: #fac555;
+}
+.character .hands .finger .nail {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 20px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #243946;
+  background-color: #fac555;
+  z-index: -1;
+}
+.character .hands .finger:nth-child(1),
+.character .hands .finger:nth-child(3) {
+  left: 4px;
+  z-index: 1;
+}
+.character .hands .finger:nth-child(1) .bone,
+.character .hands .finger:nth-child(3) .bone {
+  height: 10px;
+}
+.character .hands .finger:nth-child(3) {
+  left: -4px;
+}
+.character .hands .finger:nth-child(2) {
+  top: -5px;
+  z-index: 2;
+}
+.character .hands .finger:nth-child(1) .nail,
+.character .hands .finger:nth-child(3) .nail {
+  top: 0px;
+}
+
+@-webkit-keyframes breath {
+  0%, 100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  50% {
+    -webkit-transform: rotateX(60deg);
+            transform: rotateX(60deg);
+  }
+}
+@keyframes breath {
+  0%, 100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  50% {
+    -webkit-transform: rotateX(60deg);
+            transform: rotateX(60deg);
+  }
+}
